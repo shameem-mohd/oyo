@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:oyo/Bloc/oyo_bloc.dart';
 import 'package:oyo/Locations.dart';
 import 'package:oyo/MainHome.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiBlocProvider(
+      providers: [BlocProvider(create: (ctx)=>OyoBloc())],
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

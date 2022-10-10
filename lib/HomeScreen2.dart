@@ -1,76 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:oyo/Heritage.dart';
-import 'package:oyo/Locations.dart';
-import 'package:oyo/SearchHome.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MainHome extends StatefulWidget {
-  const MainHome({Key? key}) : super(key: key);
+class HomeScreen2 extends StatefulWidget {
+  const HomeScreen2({Key? key}) : super(key: key);
 
   @override
-  State<MainHome> createState() => _MainHomeState();
+  State<HomeScreen2> createState() => _HomeScreen2State();
 }
 
-class _MainHomeState extends State<MainHome> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  TextEditingController CheckinController = TextEditingController();
-  TextEditingController CheckoutController = TextEditingController();
+class _HomeScreen2State extends State<HomeScreen2> {
+  @override
+  void initState() {
 
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: _scaffoldKey,
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        title: Padding(
-          padding: const EdgeInsets.only(left: 90),
-          child: Text(
-            "OYO",
-            style: GoogleFonts.luckiestGuy(
-                fontWeight: FontWeight.bold, fontSize: 35, color: Colors.red),
-          ),
-        ),
-        leading: IconButton(
-            onPressed: () => _scaffoldKey.currentState!.openDrawer(),
-            icon: Icon(
-              Icons.menu,
-              color: Colors.black,
-            )),
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text('Drawer Header'),
-            ),
-            ListTile(
-              title: const Text('Item 1'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Item 2'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
-      ),
+    return  Scaffold(
+
       body: ListView(children: [
         Column(
           children: [
             GestureDetector(
               onTap: () {
-                Navigator.push((context), MaterialPageRoute(builder: (context)=>SearchHome()));
+                // Navigator.push((context), MaterialPageRoute(builder: (context)=>SearchHome()));
               },
               child: Container(
                 width: 350,
@@ -95,34 +48,6 @@ class _MainHomeState extends State<MainHome> {
               ),
             ),
             SizedBox(
-              height: 20,
-            ),
-            Container(
-                height: 90,
-                child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (ctx, index) {
-                      return Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: CircleAvatar(
-                              radius: 33,
-                              backgroundImage: NetworkImage(
-                                  "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.xcitefun.net%2Fusers%2F2009%2F06%2F84223%2Cxcitefun-awesome-dubai-photos-13.jpg&f=1&nofb=1&ipt=ebb7efe88bcc0742f57fcd5424576e973e1c4f68303f17037c5305cc465fb69c&ipo=images"),
-                            ),
-                          ),
-                          Text("place")
-                        ],
-                      );
-                    },
-                    separatorBuilder: (ctx, index) {
-                      return SizedBox(
-                        width: 1,
-                      );
-                    },
-                    itemCount: 10)),
-            SizedBox(
               height: 40,
             ),
             Container(
@@ -138,7 +63,7 @@ class _MainHomeState extends State<MainHome> {
             ),
             GestureDetector(
               onTap: (){
-                Navigator.push((context), MaterialPageRoute(builder: (context)=>Locations()));
+                // Navigator.push((context), MaterialPageRoute(builder: (context)=>Locations()));
               },
               child: Container(
                   height: 220,
@@ -207,7 +132,7 @@ class _MainHomeState extends State<MainHome> {
             ),
             GestureDetector(
               onTap: (){
-                Navigator.push((context), MaterialPageRoute(builder: (context)=>Locations()));
+                // Navigator.push((context), MaterialPageRoute(builder: (context)=>Locations()));
               },
               child: Container(
                 height: 230,
@@ -273,7 +198,7 @@ class _MainHomeState extends State<MainHome> {
 
             GestureDetector(
               onTap: (){
-                Navigator.push((context), MaterialPageRoute(builder: (context)=>Heritage()));
+                // Navigator.push((context), MaterialPageRoute(builder: (context)=>Heritage()));
               },
               child: Container(
                   height: 200,
@@ -288,8 +213,8 @@ class _MainHomeState extends State<MainHome> {
                                 height: 150,
                                 width: 200,
                                 decoration: BoxDecoration(
-                                  image: DecorationImage(image: NetworkImage("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.hillschurch.online%2Fwp-content%2Fuploads%2F2020%2F08%2Fjonah-768x456.jpeg&f=1&nofb=1&ipt=4abef9a2df257942766228a9bc7ed501fa2d79d708b49ffdf91b87b1bd0eb7fd&ipo=images",),fit: BoxFit.fill),
-                                  borderRadius: BorderRadius.all(Radius.circular(10))
+                                    image: DecorationImage(image: NetworkImage("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.hillschurch.online%2Fwp-content%2Fuploads%2F2020%2F08%2Fjonah-768x456.jpeg&f=1&nofb=1&ipt=4abef9a2df257942766228a9bc7ed501fa2d79d708b49ffdf91b87b1bd0eb7fd&ipo=images",),fit: BoxFit.fill),
+                                    borderRadius: BorderRadius.all(Radius.circular(10))
                                 ),
                               ),
                             )
@@ -316,7 +241,7 @@ class _MainHomeState extends State<MainHome> {
             ),
             GestureDetector(
               onTap: (){
-                Navigator.push((context), MaterialPageRoute(builder: (context)=>Locations()));
+                // Navigator.push((context), MaterialPageRoute(builder: (context)=>Locations()));
               },
               child: Container(
                   height: 220,
@@ -363,7 +288,7 @@ class _MainHomeState extends State<MainHome> {
             ),
             GestureDetector(
               onTap: (){
-                Navigator.push((context), MaterialPageRoute(builder: (context)=>Locations()));
+                // Navigator.push((context), MaterialPageRoute(builder: (context)=>Locations()));
               },
               child: Container(
                   height: 220,
